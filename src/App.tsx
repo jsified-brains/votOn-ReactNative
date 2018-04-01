@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import {HomeScreen} from './screens';
+import HomeScreen from './screens/home/home';
 export default class App extends React.Component {
   render() {
     return (
@@ -10,7 +10,6 @@ export default class App extends React.Component {
         <Text>Shake your phone to open the developer menu.</Text>
         <HomeScreen />
       </View>
-      
     );
   }
 }

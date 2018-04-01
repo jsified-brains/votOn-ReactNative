@@ -1,28 +1,28 @@
-import React, { Component } from 'react';
-import { ViewStyle, View , TextStyle, Button} from 'react-native';
+import React from 'react';
+import { ViewStyle, Text, View , TextStyle, Button} from 'react-native';
 import {Header} from '../../components';
-import { StackNavigator } from "react-navigation";
-import SecondScreen from "../secondScreen/secondScreen";
 
 
-class HomeScreen extends Component {
-
-    render() {
-        return (
-            <View style={styles.container}>
-                <View style={styles.appHeader}>
-                    <Header headerText="votOn"></Header>
-                </View>
-                <View style={styles.appBody}>
-                    <Button
-                        onPress={() => this.props.navigation('SecondScreen',{realm:'blah'})}
-                        title="Go to Second Screen"
-                    />
-                </View>
+const SecondScreen = () => {
+    return (
+        <View style={styles.container}>
+            <View style={styles.appHeader}>
+                <Header headerText="votOn"></Header>
             </View>
-        );
-    }
+            <View style={styles.appBody}>
+                <Text style={styles.announceHeader}>
+                    This is second screen
+                </Text>
+                <Button
+                    onPress={() => this.props.navigation.goBack ()}
+                    title="Go to HomeScreen"
+                />
+            </View>
+        </View>
+
+    );
 }
+
 
 const styles = {
     textStyle: {
@@ -82,13 +82,5 @@ const styles = {
 };
 
 
-const myscreens = StackNavigator({
-    HomeScreen: {
-        screen: HomeScreen,
-    },
-    SecondScreen:{
-        screen: SecondScreen,
-    },
-});
 
-export default myscreens ;
+export default SecondScreen ;
