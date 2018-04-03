@@ -1,22 +1,22 @@
 import React from 'react';
-import { ViewStyle, Text, View , TextStyle, Button} from 'react-native';
-import {Header} from '../../components';
+import { ViewStyle, Text, View , TextStyle} from 'react-native';
+// import {Header} from '../../components';
 
 
 const SecondScreen = () => {
     return (
         <View style={styles.container}>
             <View style={styles.appHeader}>
-                <Header headerText="votOn"></Header>
+                <Text>2ND SCREEN</Text>
             </View>
             <View style={styles.appBody}>
                 <Text style={styles.announceHeader}>
                     This is second screen
                 </Text>
-                <Button
+                {/* <Button
                     onPress={() => this.props.navigation.goBack ()}
                     title="Go to HomeScreen"
-                />
+                /> */}
             </View>
         </View>
 

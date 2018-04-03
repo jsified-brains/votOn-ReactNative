@@ -1,28 +1,35 @@
 import React, { Component } from 'react';
-import { ViewStyle, View , TextStyle, Button} from 'react-native';
-import {Header} from '../../components';
-import { StackNavigator } from "react-navigation";
-import SecondScreen from "../secondScreen/secondScreen";
+import {View , TextStyle, Text, ViewStyle, Button} from 'react-native';
+// import {Header} from '../../components';
 
 
-class HomeScreen extends Component {
+
+export default class HomeScreen extends Component {
 
     render() {
         return (
+            // <View>
+            //  <Text>Hello from Home</Text>
+            // </View>
             <View style={styles.container}>
                 <View style={styles.appHeader}>
-                    <Header headerText="votOn"></Header>
+                    <Text>header</Text>
                 </View>
                 <View style={styles.appBody}>
                     <Button
-                        onPress={() => this.props.navigation('SecondScreen',{realm:'blah'})}
+                        onPress={() => (this.props as any).navigation.navigate('SecondScreen',{realm:'blah'})}
                         title="Go to Second Screen"
                     />
+                    <Text>Body</Text>
                 </View>
             </View>
         );
     }
+
+
 }
+
+
 
 const styles = {
     textStyle: {
@@ -82,13 +89,4 @@ const styles = {
 };
 
 
-const myscreens = StackNavigator({
-    HomeScreen: {
-        screen: HomeScreen,
-    },
-    SecondScreen:{
-        screen: SecondScreen,
-    },
-});
 
-export default myscreens ;

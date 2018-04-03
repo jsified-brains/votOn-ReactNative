@@ -112,11 +112,24 @@
     "@types/node" "*"
     "@types/react" "*"
 
+"@types/react-native@*":
+  version "0.52.22"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.52.22.tgz#98abf412c826a781d448346dffe5c89fce17ef28"
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-native@^0.52.19":
   version "0.52.19"
   resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.52.19.tgz#28655fa82751e5bdb9d2bef7d03c1ddb75fe4c68"
   dependencies:
     "@types/react" "*"
+
+"@types/react-navigation@^1.5.2":
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/@types/react-navigation/-/react-navigation-1.5.2.tgz#f0efa17455d639c6540299511c5f8b3e869b90ba"
+  dependencies:
+    "@types/react" "*"
+    "@types/react-native" "*"
 
 "@types/react@*", "@types/react@^16.0.40":
   version "16.0.40"
