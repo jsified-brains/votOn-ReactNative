@@ -2,7 +2,6 @@ import React from 'react';
 import { ViewStyle, Text, View , TextStyle} from 'react-native';
 // import {Header} from '../../components';
 
-
 const SecondScreen = () => {
     return (
         <View style={styles.container}>
@@ -21,8 +20,7 @@ const SecondScreen = () => {
         </View>
 
     );
-}
-
+};
 
 const styles = {
     textStyle: {
@@ -78,9 +76,7 @@ const styles = {
         justifyContent: 'center' as 'center',
         alignItems: 'center' as 'center',
         backgroundColor: '#c29869'
-    },
+    }
 };
-
-
 
 export default SecondScreen ;

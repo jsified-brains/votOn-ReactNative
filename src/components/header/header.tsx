@@ -15,7 +15,6 @@ interface CompProps {
     headerText: string
 }
 
-
 const styles = {
     textStyle: {
         fontSize: 20
@@ -26,5 +25,6 @@ const styles = {
         alignItems: 'center' as 'center',
         justifyContent: 'center' as 'center'
     }
-}
+};
+
 export { Header };

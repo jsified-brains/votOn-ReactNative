@@ -2,12 +2,11 @@ import React from 'react';
 import { ViewStyle, Text, View , TextStyle} from 'react-native';
 import {Header} from '../../components';
 
-
 const ThirdScreen = () => {
     return (
         <View style={styles.container}>
             <View style={styles.appHeader}>
-                <Header headerText="votOn"></Header>
+                <Header headerText='votOn'></Header>
             </View>
             <View style={styles.appBody}>
                 <Text style={styles.announceHeader}>
@@ -73,9 +72,7 @@ const styles = {
         justifyContent: 'center' as 'center',
         alignItems: 'center' as 'center',
         backgroundColor: '#c29869'
-    },
+    }
 };
-
-
 
 export { ThirdScreen };

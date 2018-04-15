@@ -35,7 +35,8 @@
         "build", 
         "node_modules",
         "__tests__",
-        "awsmobilejs"
+        "awsmobilejs",
+        "App.js"
     ],
     "compileOnSave": false
 }
