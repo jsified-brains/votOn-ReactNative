@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import {View , TextStyle, Text, ViewStyle, Button} from 'react-native';
 // import {Header} from '../../components';
 
-
-
 export default class HomeScreen extends Component {
 
     render() {
@@ -13,23 +11,19 @@ export default class HomeScreen extends Component {
             // </View>
             <View style={styles.container}>
                 <View style={styles.appHeader}>
-                    <Text>header</Text>
+                    <Text>new header</Text>
                 </View>
                 <View style={styles.appBody}>
                     <Button
-                        onPress={() => (this.props as any).navigation.navigate('SecondScreen',{realm:'blah'})}
-                        title="Go to Second Screen"
+                        onPress={() => (this.props as any).navigation.navigate('SecondScreen', {realm: 'blah'})}
+                        title='Go to the Second Screen'
                     />
                     <Text>Body</Text>
                 </View>
             </View>
         );
     }
-
-
 }
-
-
 
 const styles = {
     textStyle: {
@@ -85,8 +79,5 @@ const styles = {
         justifyContent: 'center' as 'center',
         alignItems: 'center' as 'center',
         backgroundColor: '#c29869'
-    },
+    }
 };
-
-
-
