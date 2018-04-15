@@ -2,7 +2,7 @@ import React from 'react';
 import HomeScreen from './home';
 import renderer from 'react-test-renderer';
 
-describe('Header', () => {
+describe('Home Component', () => {
   it('matches expected snapshot', () => {
     const header = renderer.create(
       <HomeScreen />
