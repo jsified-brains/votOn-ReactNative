@@ -2,7 +2,7 @@ import React from 'react';
 import SecondScreen from './secondScreen';
 import renderer from 'react-test-renderer';
 
-describe('SecondScreen', () => {
+describe('SecondScreen component.', () => {
   it('matches expected snapshot', () => {
     const header = renderer.create(
       <SecondScreen />

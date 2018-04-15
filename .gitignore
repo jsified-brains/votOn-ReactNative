@@ -5,7 +5,6 @@
 
 # dependencies
 /node_modules
-/coverage
 
 # misc
 .env.local
@@ -18,4 +17,5 @@ yarn-debug.log*
 yarn-error.log*
 /build
 /awsmobilejs
+/coverage
 
