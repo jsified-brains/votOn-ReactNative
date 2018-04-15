@@ -36,7 +36,8 @@
         "node_modules",
         "__tests__",
         "awsmobilejs",
-        "App.js"
+        "App.js",
+        "jest.config.js"
     ],
     "compileOnSave": false
 }

@@ -1,12 +1,11 @@
 import React from 'react';
 import { ViewStyle, Text, View , TextStyle} from 'react-native';
-import {Header} from '../../components';
 
 const ThirdScreen = () => {
     return (
         <View style={styles.container}>
             <View style={styles.appHeader}>
-                <Header headerText='votOn'></Header>
+                <Text>Test</Text>
             </View>
             <View style={styles.appBody}>
                 <Text style={styles.announceHeader}>
@@ -75,4 +74,4 @@ const styles = {
     }
 };
 
-export { ThirdScreen };
+export default ThirdScreen ;
