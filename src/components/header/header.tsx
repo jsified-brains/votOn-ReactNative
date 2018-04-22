@@ -1,30 +1,29 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
+
+interface CompProps {
+    title: string
+}
 
 const Header = (props: CompProps) => {
-    const { textStyle, viewStyle } = styles;
-
     return (
-        <View style={viewStyle} >
-            <Text style={textStyle}> { props.headerText} </Text>
+        <View style= { styles.container }>
+            <Text style= { styles.titleText }> {props.title} </Text>
         </View>
     );
 };
 
-interface CompProps {
-    headerText: string
-}
-
-const styles = {
-    textStyle: {
-        fontSize: 20
-    },
-    viewStyle: {
+const styles = StyleSheet.create({
+    container : {
         flex: 1,
-        flexDirection: 'row' as 'row',
-        alignItems: 'center' as 'center',
-        justifyContent: 'center' as 'center'
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#669999'
+    },
+    titleText: {
+        color: '#fff',
+        fontSize: 30
     }
-};
+});
 
 export { Header };
