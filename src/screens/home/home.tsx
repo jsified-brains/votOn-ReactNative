@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {View , TextStyle, Text, ViewStyle, Button} from 'react-native';
-// import {Header} from '../../components';
 
 export default class HomeScreen extends Component {
 
