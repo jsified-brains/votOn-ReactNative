@@ -1,8 +1,41 @@
 import React from 'react';
 // import { StyleSheet } from 'react-native';
 import AppStackNavigator from './screens/router';
-export default class AppRoot extends React.Component {
+import { Root } from 'native-base';
+import { Font, AppLoading } from 'expo';
+
+interface CompState {
+  isLoading: boolean
+}
+
+interface CompProps {
+}
+
+export default class AppRoot extends React.Component<CompProps, CompState>   {
+  constructor(props: CompProps = {}) {
+    super(props);
+    this.state = {
+      isLoading: false
+    };
+  }
+
+  async componentWillMount() {
+    await Font.loadAsync({
+      Roboto: require('native-base/Fonts/Roboto.ttf'),
+      Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf')
+    });
+    this.setState({ isLoading: false });
+  }
+
   render() {
+    if (this.state.isLoading) {
+      return (
+        <Root>
+          <AppLoading />
+        </Root>
+      );
+    }
+
     return (
       // <View style={styles.container}>
       //   <Text>Hello !!! Open up App.js to start working on your app!</Text>
