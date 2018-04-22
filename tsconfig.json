@@ -37,7 +37,8 @@
         "__tests__",
         "awsmobilejs",
         "App.js",
-        "jest.config.js"
+        "jest.config.js",
+        "coverage"
     ],
     "compileOnSave": false
 }
