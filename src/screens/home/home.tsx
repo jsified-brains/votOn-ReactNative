@@ -1,82 +1,60 @@
 import React, { Component } from 'react';
-import {View , TextStyle, Text, ViewStyle, Button} from 'react-native';
+import { StyleSheet } from 'react-native';
+import { AppHeader } from '../../components';
+import { Container, Content,  Text, List, ListItem, Button} from 'native-base';
+     // Left, Right, Body, Header, Icon,
+     // Title, Subtitle } from 'native-base';
 
 export default class HomeScreen extends Component {
-
     render() {
+        const { lcontainer, listText  } = styles;
         return (
-            // <View>
-            //  <Text>Hello from Home</Text>
-            // </View>
-            <View style={styles.container}>
-                <View style={styles.appHeader}>
-                    <Text>new header</Text>
-                </View>
-                <View style={styles.appBody}>
-                    <Button
-                        onPress={() => (this.props as any).navigation.navigate('SecondScreen', {realm: 'blah'})}
-                        title='Go to the Second Screen'
-                    />
-                    <Text>Body</Text>
-                </View>
-            </View>
+            <Container style={lcontainer}>
+                <AppHeader />
+
+                <Content>
+                    <List>
+                        <ListItem>
+                            <Text style={listText}>Test Content</Text>
+                            <Button
+                                onPress={() => (this.props as any).navigation.navigate('SecondScreen', {realm: 'blah'})} >
+                                <Text>Go to the Second Screen</Text>
+                            </Button>
+                        </ListItem>
+                    </List>
+                </Content>
+            </Container>
         );
     }
 }
 
-const styles = {
-    textStyle: {
-        fontSize: 20
-    },
-    viewStyle: {
-        flex: 1,
-        flexDirection: 'row' as 'row',
-        alignItems: 'center' as 'center',
-        justifyContent: 'center' as 'center'
-    },
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF'
-    } as ViewStyle,
+const styles = StyleSheet.create({
+//     container: {
+//         flex: 1,
+//         backgroundColor: '#eee',
+//         justifyContent: 'center'
+//       },
+//     header: {
+//         flex: 1
+//     },
+//     content: {
+//         flex: 6,
+//         alignItems: 'center',
+//         justifyContent: 'center'
+//     }
 
-    announceHeader: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10
-    } as TextStyle,
-
-    announceDesc: {
-        fontSize: 17,
-        textAlign: 'center',
-        margin: 10
-    } as TextStyle,
-
-    announceFooter: {
-        fontSize: 15,
-        textAlign: 'center',
-        margin: 10
-    } as TextStyle,
-
-    appHeader: {
-        flex: 1,
-        flexDirection: 'row' as 'row',
-        justifyContent: 'center' as 'center',
-        alignItems: 'center' as 'center',
-        backgroundColor: '#a3a3c2'
-    },
-
-    appBody: {
-        flex: 11,
-        justifyContent: 'center' as 'center'
-    },
-
-    appFooter: {
-        flex: 1,
-        flexDirection: 'row' as 'row',
-        justifyContent: 'center' as 'center',
-        alignItems: 'center' as 'center',
-        backgroundColor: '#c29869'
-    }
-};
+        lHeader : {
+            backgroundColor: '#669999'
+        },
+        lTitleText: {
+            color: '#ff1a75',
+            fontSize: 18
+        },
+        lcontainer: {
+            backgroundColor: '#1f2e2e'
+        },
+        listText: {
+            color: '#e0ebeb',
+            fontSize: 18
+        }
+});

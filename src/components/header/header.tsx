@@ -1,30 +1,73 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { StyleSheet, Image } from 'react-native';
+import { Right, Body, Header, Icon,
+            Title, Subtitle } from 'native-base';
+import logo from '../../../assets/img/logo.png';
 
-const Header = (props: CompProps) => {
-    const { textStyle, viewStyle } = styles;
+// interface CompProps {
+//     title: string
+// }
 
+const AppHeader = () => {
+    const { container, bodyContainer, titleText,
+                logoContainer , subtitleContainer, rightBlock, circleIcon} = styles;
+    // const logoImg = require('../assets/img/logo.png');
     return (
-        <View style={viewStyle} >
-            <Text style={textStyle}> { props.headerText} </Text>
-        </View>
+        <Header style={container}>
+            <Body style={bodyContainer}>
+                <Title style={logoContainer}>
+                    <Image
+                        style={{width: 160, height: 55}}
+                        source={logo} />
+                </Title>
+                <Subtitle style={[subtitleContainer, titleText]}>...polls made simple</Subtitle>
+            </Body>
+            <Right style={rightBlock}>
+                <Icon type='FontAwesome' name='user-circle' style={circleIcon}/>
+            </Right>
+        </Header>
+
     );
 };
 
-interface CompProps {
-    headerText: string
-}
-
-const styles = {
-    textStyle: {
-        fontSize: 20
+const styles = StyleSheet.create({
+    container : {
+        backgroundColor: '#a4c1c1',
+        height: 100
     },
-    viewStyle: {
+    titleText: {
+        color: '#ff1a75',
+        fontSize: 20,
+        fontWeight: 'bold'
+    },
+    bodyContainer: {
+        marginTop: 15,
+        flex: 5,
+        flexDirection: 'column',
+        alignItems: 'flex-start'
+    },
+    logoContainer : {
+        flex: 3
+    },
+    subtitleContainer : {
+        flex: 2,
+        color: '#ff1a75',
+        fontSize: 18,
+        marginTop: 10,
+        marginLeft: 80
+    },
+    rightBlock: {
         flex: 1,
-        flexDirection: 'row' as 'row',
-        alignItems: 'center' as 'center',
-        justifyContent: 'center' as 'center'
+        marginTop: 15,
+        paddingTop: 5,
+        paddingBottom: 5,
+        justifyContent: 'center'
+    },
+    circleIcon: {
+        fontSize: 50,
+        color: '#476b6b'
     }
-};
 
-export { Header };
+});
+
+export { AppHeader };
