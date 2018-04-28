@@ -1,21 +1,11 @@
 import React from 'react';
-import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
-// import {Header} from '../../components';
+import { Container, Content, Footer, FooterTab, Button, Text } from 'native-base';
+import {AppHeader} from '../../components';
 
 const SecondScreen = () => {
     return (
         <Container>
-            <Header>
-                <Left>
-                    <Button transparent>
-                        <Icon name='menu' />
-                    </Button>
-                </Left>
-                <Body>
-                    <Title>Header</Title>
-                </Body>
-                <Right />
-            </Header>
+            <AppHeader />
             <Content>
                 <Text>
                     This is Content Section
@@ -23,9 +13,9 @@ const SecondScreen = () => {
             </Content>
             <Footer>
                 <FooterTab>
-                <Button full>
-                    <Text>Footer</Text>
-                </Button>
+                    <Button full>
+                        <Text>Footer</Text>
+                    </Button>
                 </FooterTab>
             </Footer>
         </Container>

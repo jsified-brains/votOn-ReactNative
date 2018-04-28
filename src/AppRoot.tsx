@@ -1,7 +1,7 @@
 import React from 'react';
 // import { StyleSheet } from 'react-native';
-import AppStackNavigator from './screens/router';
-import { Root } from 'native-base';
+import { AppStackNavigator } from './screens/router';
+import { View } from 'react-native';
 import { Font, AppLoading } from 'expo';
 
 interface CompState {
@@ -20,6 +20,7 @@ export default class AppRoot extends React.Component<CompProps, CompState>   {
   }
 
   async componentWillMount() {
+    this.setState({ isLoading: true });
     await Font.loadAsync({
       Roboto: require('native-base/Fonts/Roboto.ttf'),
       Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf')
@@ -30,9 +31,9 @@ export default class AppRoot extends React.Component<CompProps, CompState>   {
   render() {
     if (this.state.isLoading) {
       return (
-        <Root>
+        <View>
           <AppLoading />
-        </Root>
+        </View>
       );
     }
 
