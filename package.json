@@ -45,10 +45,13 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^6.3.1",
+    "@types/lodash": "^4.14.108",
     "expo": "^25.0.0",
+    "lodash": "^4.17.10",
     "native-base": "^2.4.2",
     "react": "16.2.0",
     "react-native": "0.52.0",
+    "react-native-easy-grid": "^0.1.17",
     "react-navigation": "1.5.8"
   }
 }

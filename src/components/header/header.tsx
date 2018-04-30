@@ -4,14 +4,10 @@ import { Right, Body, Header, Icon,
             Title, Subtitle } from 'native-base';
 import logo from '../../../assets/img/logo.png';
 
-// interface CompProps {
-//     title: string
-// }
-
 const AppHeader = () => {
     const { container, bodyContainer, titleText,
-                logoContainer , subtitleContainer, rightBlock, circleIcon} = styles;
-    // const logoImg = require('../assets/img/logo.png');
+                logoContainer , subtitleContainer, rightBlock, circleIcon } = styles;
+
     return (
         <Header style={container}>
             <Body style={bodyContainer}>
@@ -26,7 +22,6 @@ const AppHeader = () => {
                 <Icon type='FontAwesome' name='user-circle' style={circleIcon}/>
             </Right>
         </Header>
-
     );
 };
 
@@ -51,8 +46,6 @@ const styles = StyleSheet.create({
     },
     subtitleContainer : {
         flex: 2,
-        color: '#ff1a75',
-        fontSize: 18,
         marginTop: 10,
         marginLeft: 80
     },

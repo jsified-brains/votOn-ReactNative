@@ -1,27 +1,28 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
-import { AppHeader } from '../../components';
-import { Container, Content,  Text, List, ListItem, Button} from 'native-base';
+import { AppHeader, PollTemplatesGrid } from '../../components';
+import { Container, Content} from 'native-base'; // ,  Text, List, ListItem, Button
      // Left, Right, Body, Header, Icon,
      // Title, Subtitle } from 'native-base';
 
 export default class HomeScreen extends Component {
     render() {
-        const { lcontainer, listText  } = styles;
+        const { lcontainer  } = styles;
         return (
             <Container style={lcontainer}>
                 <AppHeader />
 
                 <Content>
-                    <List>
+                    {/* <List>
                         <ListItem>
                             <Text style={listText}>Test Content</Text>
                             <Button
                                 onPress={() => (this.props as any).navigation.navigate('SecondScreen', {realm: 'blah'})} >
-                                <Text>Go to the Second Screen</Text>
+                                <Text>Create a Poll</Text>
                             </Button>
                         </ListItem>
-                    </List>
+                    </List> */}
+                    <PollTemplatesGrid />
                 </Content>
             </Container>
         );
