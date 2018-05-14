@@ -1,9 +1,10 @@
 import React from 'react';
 import { ViewStyle, Text, View , TextStyle} from 'react-native';
 
-const ThirdScreen = () => {
+const SelectPollTemplate = () => {
     return (
-        <View style={styles.container}>
+        <View>
+
             <View style={styles.appHeader}>
                 <Text>Test</Text>
             </View>
@@ -74,4 +75,4 @@ const styles = {
     }
 };
 
-export default ThirdScreen ;
+export default SelectPollTemplate ;
