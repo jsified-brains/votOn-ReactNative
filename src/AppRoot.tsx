@@ -1,21 +1,28 @@
 import React from 'react';
 import { AppStackNavigator } from './screens/router';
-import { View } from 'react-native';
+import { View, Dimensions } from 'react-native';
 import { Font, AppLoading } from 'expo';
+import { DeviceOrientation, AppDeviceInfo } from './modules/AppDeviceInfo/AppDeviceInfo';
 
 interface CompState {
   isLoading: boolean
+  orientation: DeviceOrientation
 }
 
 interface CompProps {
 }
 
 export default class AppRoot extends React.Component<CompProps, CompState>   {
+
   constructor(props: CompProps = {}) {
     super(props);
+
     this.state = {
-      isLoading: false
+      isLoading: false,
+      orientation: AppDeviceInfo.orientation()
     };
+
+    Dimensions.addEventListener('change', this.onOrientationChange);
   }
 
   async componentWillMount() {
@@ -40,5 +47,11 @@ export default class AppRoot extends React.Component<CompProps, CompState>   {
     return (
       <AppStackNavigator />
     );
+  }
+
+  onOrientationChange = () => {
+    this.setState({
+        orientation: AppDeviceInfo.orientation()
+    });
   }
 }
