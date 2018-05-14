@@ -66,7 +66,7 @@ export class PollTemplatesGrid extends React.Component<CompProps, CompState>   {
         const cols = this.state.orientation === DeviceOrientation.landscape ? 4 : 3;
 
         return (
-            <Grid>
+            <Grid style={styles.grid} >
                 {
                     chunk(pollTemplates, cols).map((templateChunk, index) => {
                     // pollTemplates.map((templateChunk) => {
@@ -98,6 +98,6 @@ const styles = StyleSheet.create({
     },
     grid: {
         flex: 1,
-        backgroundColor: '#7d5e3c'
+        backgroundColor: 'transparent'
     }
 });

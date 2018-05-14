@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Content, Footer, FooterTab, Button, Text } from 'native-base';
 import {AppHeader} from '../../components';
 
-const SecondScreen = () => {
+export const AddPollOptions = () => {
     return (
         <Container>
             <AppHeader />
@@ -22,5 +22,3 @@ const SecondScreen = () => {
     );
 
 };
-
-export default SecondScreen ;

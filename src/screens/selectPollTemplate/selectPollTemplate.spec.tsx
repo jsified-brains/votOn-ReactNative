@@ -1,5 +1,5 @@
 import React from 'react';
-import SelectPollTemplate from './selectPollTemplate';
+import {SelectPollTemplate} from './selectPollTemplate';
 import renderer from 'react-test-renderer';
 
 describe('ThirdScreen component.', () => {

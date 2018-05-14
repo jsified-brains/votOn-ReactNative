@@ -1,78 +1,32 @@
 import React from 'react';
-import { ViewStyle, Text, View , TextStyle} from 'react-native';
+import { AppHeader, PollTemplatesGrid } from '../../components';
+import { Container, Content } from 'native-base';
+import { StyleSheet } from 'react-native';
+import { AppTheme } from '../../styles/themes';
 
-const SelectPollTemplate = () => {
+export const SelectPollTemplate = () => {
+    const {content, container} = styles;
     return (
-        <View>
+        <Container style={container}>
+            <AppHeader />
 
-            <View style={styles.appHeader}>
-                <Text>Test</Text>
-            </View>
-            <View style={styles.appBody}>
-                <Text style={styles.announceHeader}>
-                    This is third screen
-                </Text>
-            </View>
-        </View>
+            <Content contentContainerStyle={content}>
+                <PollTemplatesGrid />
+            </Content>
+        </Container>
 
     );
 };
 
-const styles = {
-    textStyle: {
-        fontSize: 20
-    },
-    viewStyle: {
-        flex: 1,
-        flexDirection: 'row' as 'row',
-        alignItems: 'center' as 'center',
-        justifyContent: 'center' as 'center'
-    },
+const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF'
-    } as ViewStyle,
-
-    announceHeader: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10
-    } as TextStyle,
-
-    announceDesc: {
-        fontSize: 17,
-        textAlign: 'center',
-        margin: 10
-    } as TextStyle,
-
-    announceFooter: {
-        fontSize: 15,
-        textAlign: 'center',
-        margin: 10
-    } as TextStyle,
-
-    appHeader: {
-        flex: 1,
-        flexDirection: 'row' as 'row',
-        justifyContent: 'center' as 'center',
-        alignItems: 'center' as 'center',
-        backgroundColor: '#a3a3c2'
+        flex: 1
     },
-
-    appBody: {
-        flex: 11,
-        justifyContent: 'center' as 'center'
-    },
-
-    appFooter: {
+    content: {
         flex: 1,
-        flexDirection: 'row' as 'row',
-        justifyContent: 'center' as 'center',
-        alignItems: 'center' as 'center',
-        backgroundColor: '#c29869'
+        backgroundColor: AppTheme.currentTheme.bodyBGColor.dark,
+        justifyContent: 'center'
     }
-};
+});
 
-export default SelectPollTemplate ;
+// export default SelectPollTemplate ;
