@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { StyleSheet, ScrollView, Image} from 'react-native';
 import { AppHeader } from '../../components';
 import { Container, Content,  Text, List, ListItem} from 'native-base';
-import logo from '../../../assets/img/logo.png';
      // Left, Right, Body, Header, Icon,
      // Title, Subtitle } from 'native-base';
 
@@ -36,7 +35,7 @@ export default class HomeScreen extends Component {
                         <Text style={listText}> Welcome to React Native this is 1 </Text>
                         <Text style={listText}> Welcome to React Native 2</Text>
                         <Text style={listText}> Welcome to React Native 3 </Text>
-                        <Image source={logo} />
+                        <Image source={require('/Users/nchaudhary/Downloads/birdhouses/782.JPG')} />
                     </ScrollView>
                 </Content>
             </Container>
