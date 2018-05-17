@@ -1,24 +1,14 @@
 import React, { Component } from 'react';
-import { StyleSheet, ScrollView, View, Image, Dimensions, Animated} from 'react-native';
-import { AppHeader } from '../../components';
-import { Container, Content,  Text, List, ListItem, Button} from 'native-base';
+import { StyleSheet, View, Dimensions} from 'react-native';
+import { AppHeader, ScrollViews } from '../../components';
+import { Container, Content,  Text, List, ListItem, Button} from 'native-base';  //search scrollview here
 
 const { width } = Dimensions.get('window');
 
-const photos = [
-    { uri: 'https://cdn.skillflow.io/resources/img/skillflowninja.png' },
-    { uri: 'https://mileung.com/static/media/me.cd114855.png' },
-    { uri: 'https://cdn.skillflow.io/resources/img/skillflowninja.png' },
-    { uri: 'https://mileung.com/static/media/me.cd114855.png' },
-    { uri: 'https://cdn.skillflow.io/resources/img/skillflowninja.png' }
-];
-
 export default class HomeScreen extends Component {
-    scrollX = new Animated.Value(0);
 
     render() {
         const { lcontainer, listText  } = styles;
-        let position = Animated.divide(this.scrollX, width);
 
         return (
             <Container style={lcontainer}>
@@ -36,42 +26,7 @@ export default class HomeScreen extends Component {
                         <View
                             style={{ width, height: width }}
                         >
-                    <ScrollView
-                        horizontal={true}
-                        showsHorizontalScrollIndicator={false}
-                        pagingEnabled={true}
-                        onScroll={Animated.event(
-                            [{ nativeEvent: { contentOffset: { x: this.scrollX } } }]
-                            )}
-                        scrollEventThrottle={20}
-                    >
-                        {photos.map((source, i) => {
-                            return (
-                                <Image
-                                    key={i}
-                                    style={{ width, height: width }}
-                                    source={source}
-                                />
-                            );
-                        })}
-                    </ScrollView>
-                    </View>
-                        <View
-                            style={{ flexDirection: 'row' }}
-                        >
-                            {photos.map((_, i) => {
-                                let opacity = position.interpolate({
-                                    inputRange: [i - 1, i, i + 1],
-                                    outputRange: [0.3, 1, 0.3],
-                                    extrapolate: 'clamp'
-                                });
-                                return (
-                                    <Animated.View
-                                        key={i}
-                                        style={{ opacity, height: 10, width: 10, backgroundColor: '#f78900', margin: 8, borderRadius: 5 }}
-                                    />
-                                );
-                            })}
+                    <ScrollViews />
                         </View>
                     </View>
                     <Button
