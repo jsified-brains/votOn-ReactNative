@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Dimensions} from 'react-native';
+import { StyleSheet, Dimensions, View} from 'react-native';
 import { AppHeader, ScrollViews } from '../../components';
 import { Container, Content,  Text, List, ListItem, Button} from 'native-base';  //search scrollview here
 
@@ -22,13 +22,11 @@ export default class HomeScreen extends Component {
                     </List>
                     <Text style={listText}>Below is the list to scroll the images  </Text>
 
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                         <View
                             style={{ width, height: width }}
                         >
                     <ScrollViews />
                         </View>
-                    </View>
                     <Button
                     onPress={() => (this.props as any).navigation.navigate('SecondScreen', {realm: 'blah'})} >
                     <Text>Second Screen</Text>

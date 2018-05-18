@@ -11,31 +11,37 @@ const photos = [
     require('../../../assets/img/IconImgs/VeifiedSignIn.png'),
 ];
 
+scrollX = new Animated.Value(0);
 
 const ScrollViews = () => {
-    let position = Animated.divide(new Animated.Value(0), width);
+    let position = Animated.divide(scrollX, width);
+
     return (
-        <View>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <View
+                style={{ width, height: width }}
+            >
         <ScrollView
             horizontal={true}
             showsHorizontalScrollIndicator={false}
             pagingEnabled={true}
             onScroll={Animated.event(
-                            [{ nativeEvent: { contentOffset: { x: new Animated.Value(0)} } }]
+                            [{ nativeEvent: { contentOffset: { x: scrollX} } }]
                             )}
             scrollEventThrottle={20}
         >
             {photos.map((source, i) => {
                 return (
                     <Image
-                        resizeMode="contain"
+                        resizeMode='center'
                         key={i}
-                        style={{ width: 350, height: 350 }}
+                        style={{ width, height: width }}
                         source={source}
                     />
                 );
             })}
         </ScrollView>
+            </View>
         <View
             style={{ flexDirection: 'row' }}
         >
