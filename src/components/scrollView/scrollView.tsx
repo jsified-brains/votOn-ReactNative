@@ -11,7 +11,10 @@ const photos = [
     require('../../../assets/img/IconImgs/VeifiedSignIn.png'),
 ];
 
-scrollX = new Animated.Value(0);
+
+//implement auto scrolling
+
+const scrollX = new Animated.Value(0);
 
 const ScrollViews = () => {
     let position = Animated.divide(scrollX, width);
@@ -33,9 +36,9 @@ const ScrollViews = () => {
             {photos.map((source, i) => {
                 return (
                     <Image
-                        resizeMode='center'
+                        resizeMode='contain'
                         key={i}
-                        style={{ width, height: width }}
+                        style={{ width, height: width, marginBottom: 12, marginTop: 12 }}
                         source={source}
                     />
                 );

@@ -23,11 +23,11 @@ export default class HomeScreen extends Component {
                     <Text style={listText}>Below is the list to scroll the images  </Text>
 
                         <View
-                            style={{ width, height: width }}
+                            style={{ width, height: width}}
                         >
                     <ScrollViews />
                         </View>
-                    <Button
+                    <Button style={{marginBottom: 12, marginTop: 12}}
                     onPress={() => (this.props as any).navigation.navigate('SecondScreen', {realm: 'blah'})} >
                     <Text>Second Screen</Text>
                     </Button>
@@ -38,19 +38,6 @@ export default class HomeScreen extends Component {
 }
 
 const styles = StyleSheet.create({
-//     container: {
-//         flex: 1,
-//         backgroundColor: '#eee',
-//         justifyContent: 'center'
-//       },
-//     header: {
-//         flex: 1
-//     },
-//     content: {
-//         flex: 6,
-//         alignItems: 'center',
-//         justifyContent: 'center'
-//     }
 
         lHeader : {
             backgroundColor: '#669999'
