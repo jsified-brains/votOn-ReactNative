@@ -1,28 +1,36 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
-import { AppHeader, PollTemplatesGrid } from '../../components';
-import { Container, Content} from 'native-base'; // ,  Text, List, ListItem, Button
-     // Left, Right, Body, Header, Icon,
-     // Title, Subtitle } from 'native-base';
+import { StyleSheet, Dimensions, View} from 'react-native';
+import { AppHeader, ScrollViews } from '../../components';
+import { Container, Content,  Text, List, ListItem, Button} from 'native-base';  //search scrollview here
+
+const { width } = Dimensions.get('window');
 
 export default class HomeScreen extends Component {
+
     render() {
-        const { lcontainer  } = styles;
+        const { lcontainer, listText  } = styles;
+
         return (
             <Container style={lcontainer}>
                 <AppHeader />
 
                 <Content>
-                    {/* <List>
+                    <List>
                         <ListItem>
-                            <Text style={listText}>Test Content</Text>
-                            <Button
-                                onPress={() => (this.props as any).navigation.navigate('SecondScreen', {realm: 'blah'})} >
-                                <Text>Create a Poll</Text>
-                            </Button>
+                            <Text style={listText}>Test Content  </Text>
                         </ListItem>
-                    </List> */}
-                    <PollTemplatesGrid />
+                    </List>
+                    <Text style={listText}>Below is the list to scroll the images  </Text>
+
+                        <View
+                            style={{ width, height: width}}
+                        >
+                    <ScrollViews />
+                        </View>
+                    <Button style={{marginBottom: 12, marginTop: 12}}
+                    onPress={() => (this.props as any).navigation.navigate('SecondScreen', {realm: 'blah'})} >
+                    <Text>Second Screen</Text>
+                    </Button>
                 </Content>
             </Container>
         );
@@ -30,19 +38,6 @@ export default class HomeScreen extends Component {
 }
 
 const styles = StyleSheet.create({
-//     container: {
-//         flex: 1,
-//         backgroundColor: '#eee',
-//         justifyContent: 'center'
-//       },
-//     header: {
-//         flex: 1
-//     },
-//     content: {
-//         flex: 6,
-//         alignItems: 'center',
-//         justifyContent: 'center'
-//     }
 
         lHeader : {
             backgroundColor: '#669999'
