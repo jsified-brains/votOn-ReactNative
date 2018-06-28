@@ -1,6 +1,7 @@
 import { StackNavigator } from 'react-navigation';
 import {AddPollOptions, SelectPollTemplate} from './';
-import HomeScreen from './home/home';
+import {HomeScreen} from './home/home';
+// import { AppRegistry } from 'react-native';
 
 export const AppStackNavigator = StackNavigator({
     HomeScreen: {
@@ -13,3 +14,5 @@ export const AppStackNavigator = StackNavigator({
         screen: AddPollOptions
     }
 }, {    headerMode: 'none'  });
+
+// AppRegistry.registerComponent('AppRoot', () => AppStackNavigator);

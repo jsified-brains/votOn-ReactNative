@@ -6,7 +6,7 @@ import { Container, Content ,  Text, List, ListItem, Button } from 'native-base'
      // Left, Right, Body, Header, Icon,
      // Title, Subtitle } from 'native-base';
 
-export default class HomeScreen extends Component {
+export class HomeScreen extends Component {
     render() {
         const { lcontainer, listText, button  } = styles;
         return (

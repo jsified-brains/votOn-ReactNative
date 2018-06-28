@@ -11,7 +11,9 @@ export const SelectPollTemplate = () => {
             <AppHeader />
 
             <Content contentContainerStyle={content}>
-                <PollTemplatesGrid />
+
+                    <PollTemplatesGrid />
+
             </Content>
         </Container>
 
@@ -20,12 +22,10 @@ export const SelectPollTemplate = () => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
     },
     content: {
         flex: 1,
-        backgroundColor: AppTheme.currentTheme.bodyBGColor.dark,
-        justifyContent: 'center'
+        backgroundColor: AppTheme.currentTheme.bodyBGColor.dark
     }
 });
 

@@ -25,10 +25,15 @@ export class PollTemplate extends React.Component<CompProps, {}> {
 
     render() {
         const templateIcon: (keyof ITemplateIcons) = this.props.pollTemplate.icon;
+        const { navigate } = (this.props as any).navigation;
+
         return (
             <Content contentContainerStyle={styles.content} >
                 <Card style={styles.card}>
-                    <CardItem cardBody style={[ styles.iconContainer, { backgroundColor: getRandomVibrantColor() }]}>
+                    <CardItem cardBody
+                    onPress={() => navigate('AddPollOptions', {pollTemplate: this.props.pollTemplate})}
+                    button
+                    style={[ styles.iconContainer, { backgroundColor: getRandomVibrantColor() }]}>
                         <Image source={templateIcons[templateIcon]}
                             style={[{width: 55, height: 40} ]}/>
                     </CardItem>

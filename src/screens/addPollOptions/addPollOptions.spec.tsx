@@ -4,10 +4,10 @@ import renderer from 'react-test-renderer';
 
 describe('SecondScreen component.', () => {
   it('matches expected snapshot', () => {
-    const header = renderer.create(
+    const addPollOptions = renderer.create(
       <AddPollOptions />
     ).toJSON;
-    expect(header).toMatchSnapshot();
+    expect(addPollOptions).toMatchSnapshot();
   });
 
   it('renders without crashing', () => {

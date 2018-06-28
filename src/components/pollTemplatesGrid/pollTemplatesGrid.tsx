@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent'
     },
     grid: {
-        flex: 1,
-        backgroundColor: 'transparent'
+        backgroundColor: 'transparent',
+        alignItems: 'center'
     }
 });
