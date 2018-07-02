@@ -1,9 +1,10 @@
-import { StackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 import {AddPollOptions, SelectPollTemplate} from './';
 import {HomeScreen} from './home/home';
 // import { AppRegistry } from 'react-native';
 
-export const AppStackNavigator = StackNavigator({
+
+export const AppStackNavigator = createStackNavigator({
     HomeScreen: {
         screen: HomeScreen
     },

@@ -1,5 +1,5 @@
 import React from 'react';
-import HomeScreen from './home';
+import {HomeScreen} from './home';
 import renderer from 'react-test-renderer';
 
 describe('Home Component.', () => {
