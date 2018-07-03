@@ -29,7 +29,7 @@ export class PollTemplate extends Component<CompProps, {}> {
             <Content contentContainerStyle={styles.content} >
                 <Card style={styles.card}>
                     <CardItem cardBody
-                    onPress={() => this.props.navigation.navigate('AddPollOptions', {realm: 'blah'})}
+                    onPress={() => this.props.navigation.navigate('AddPollOptions', { pollTemplate: this.props.pollTemplate})}
                     button
                     style={[ styles.iconContainer, { backgroundColor: getRandomVibrantColor() }]}>
                         <Image source={templateIcons[templateIcon]}
