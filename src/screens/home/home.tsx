@@ -1,29 +1,30 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
-import { AppHeader } from '../../components';
-import { AppTheme } from '../../styles/themes';
-import { Container, Content ,  Text, List, ListItem, Button } from 'native-base'; //
-     // Left, Right, Body, Header, Icon,
-     // Title, Subtitle } from 'native-base';
+import { StyleSheet, Dimensions, View} from 'react-native';
+import { AppHeader, ScrollViews } from '../../components';
+import { Container, Content,  Text, Button} from 'native-base';  //search scrollview here
+import { AppTheme } from '../../styles/themes/index';
 
+const { width } = Dimensions.get('window');
 export class HomeScreen extends Component {
     render() {
-        const { lcontainer, listText, button  } = styles;
+        const { lcontainer, button, contentsContainer,  
+                featuresSection, bottomSection, buttonText } = styles;
         return (
             <Container style={lcontainer}>
                 <AppHeader />
 
                 <Content>
-                    <List>
-                        <ListItem>
-                            <Text style={listText}>Test Content</Text>
-                            <Button style={button}
+                    <View style={contentsContainer}>
+                        <View style={featuresSection}>
+                            <ScrollViews />
+                        </View>
+                        <View style={bottomSection}>
+                            <Button block style={button}
                                 onPress={() => (this.props as any).navigation.navigate('SelectPollTemplate', {realm: 'blah'})} >
-                                <Text>Create a Poll</Text>
+                                        <Text style={buttonText}>Create a Poll</Text>
                             </Button>
-                        </ListItem>
-                    </List>
-                    {/* <PollTemplatesGrid /> */}
+                        </View>
+                    </View>
                 </Content>
             </Container>
         );
@@ -47,5 +48,24 @@ const styles = StyleSheet.create({
         },
         button: {
             backgroundColor: AppTheme.brandColors.medium
+        },
+        buttonText: {
+            fontSize: 20
+        },
+        contentsContainer : {
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+        },
+        featuresSection : {
+            flex: 6,
+            width: width, 
+            height: width,
+            justifyContent: 'center',
+            alignItems: 'center',
+        },
+        bottomSection : {
+            flex: 3,
+            justifyContent: 'center'
         }
 });
