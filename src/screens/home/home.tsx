@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Dimensions, View} from 'react-native';
-import { AppHeader } from '../../components'; //, ScrollViews
+import { AppHeader, ScrollViews } from '../../components'; 
 import { Container, Content,  Text, Button} from 'native-base';  //search scrollview here
 import { AppTheme } from '../../styles/themes/index';
 
@@ -16,8 +16,7 @@ export class HomeScreen extends Component {
                 <Content>
                     <View style={contentsContainer}>
                         <View style={featuresSection}>
-                            {/* <ScrollViews /> */}
-                            <Text style={buttonText}>Features of App</Text>
+                            <ScrollViews />
                         </View>
                         <View style={bottomSection}>
                             <Button block style={button}

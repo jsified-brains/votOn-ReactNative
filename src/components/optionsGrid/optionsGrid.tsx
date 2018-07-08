@@ -17,6 +17,9 @@ const pollOptions = [
     },
     {
         description : 'Option 3'
+    },
+    {
+        description : 'Option 4'
     }
 ];
 
