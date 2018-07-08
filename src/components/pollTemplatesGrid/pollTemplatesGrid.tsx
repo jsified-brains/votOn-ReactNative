@@ -3,10 +3,11 @@ import {StyleSheet, Dimensions } from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 
 import { chunk } from 'lodash';
-import { PollTemplate, pollTemplateType} from '../pollTemplate/pollTemplate';
+import PollTemplate from '../pollTemplate/pollTemplate';
 import { DeviceOrientation, AppDeviceInfo } from '../../modules/AppDeviceInfo/AppDeviceInfo';
+import { PollTemplateType } from '../../interfacesTypesEnums';
 
-const pollTemplates: pollTemplateType[] = [
+const pollTemplates: PollTemplateType[] = [
     {
         id: 1,
         icon: 'meeting',
@@ -40,10 +41,11 @@ interface CompState {
 
 // https://shellmonger.com/2017/07/26/handling-orientation-changes-in-react-native/
 interface CompProps {
+    navigation:any
 }
 
 export class PollTemplatesGrid extends React.Component<CompProps, CompState>   {
-    constructor(props: CompProps = {}) {
+    constructor(props: CompProps) {
         super(props);
         this.state = {
           orientation: AppDeviceInfo.orientation()
@@ -51,12 +53,12 @@ export class PollTemplatesGrid extends React.Component<CompProps, CompState>   {
         Dimensions.addEventListener('change', this.onOrientationChange);
     }
 
-    templatesRow = (templateChunk: pollTemplateType[] ) => {
+    templatesRow = (templateChunk: PollTemplateType[] ) => {
 
         return templateChunk.map(template => {
             return (
                 <Col key={template.id} style={styles.col}>
-                    <PollTemplate pollTemplate={template} />
+                    <PollTemplate pollTemplate={template}  navigation={this.props.navigation} />
                 </Col>
             );
         });
@@ -66,7 +68,7 @@ export class PollTemplatesGrid extends React.Component<CompProps, CompState>   {
         const cols = this.state.orientation === DeviceOrientation.landscape ? 4 : 3;
 
         return (
-            <Grid>
+            <Grid style={styles.grid} >
                 {
                     chunk(pollTemplates, cols).map((templateChunk, index) => {
                     // pollTemplates.map((templateChunk) => {
@@ -97,7 +99,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent'
     },
     grid: {
-        flex: 1,
-        backgroundColor: '#7d5e3c'
+        backgroundColor: 'transparent',
+        alignItems: 'center'
     }
 });

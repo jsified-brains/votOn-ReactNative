@@ -7,7 +7,7 @@ const forestColorCombo: colorThemeCombo = {
     faded: '#C4DFE6'
 };
 
-export const AquaTheme: AppThemeSchema = {
+export const ForestTheme: AppThemeSchema = {
     bodyBGColor: forestColorCombo,
     textColor: forestColorCombo,
     screenTitleColor: '#17A7D5',

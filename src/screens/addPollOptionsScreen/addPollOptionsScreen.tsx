@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
-import { AppHeader, PollTemplatesGrid } from '../../components';
+import { AppHeader } from '../../components';
 import { Container, Content } from 'native-base';
 import { StyleSheet } from 'react-native';
 import { AppTheme } from '../../styles/themes';
+import AddPollOptions from '../../components/addPollOptions/addPollOptions'
 
-export class SelectPollTemplate extends Component {
+export class AddPollOptionsScreen extends Component {
     
     render() {
         const {content, container} = styles;
-        return (
-            <Container style={container}>
+        
+        return ( <Container style={container}>
                 <AppHeader />
 
                 <Content contentContainerStyle={content}>
-
-                        <PollTemplatesGrid  navigation={(this.props as any).navigation} />
-
+                    <AddPollOptions navigation={(this.props as any).navigation} />
                 </Content>
             </Container>
 
@@ -31,5 +30,3 @@ const styles = StyleSheet.create({
         backgroundColor: AppTheme.currentTheme.bodyBGColor.dark
     }
 });
-
-// export default SelectPollTemplate ;

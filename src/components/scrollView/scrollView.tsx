@@ -22,7 +22,7 @@ const ScrollViews = () => {
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <View
-                style={{ width, height: width }}
+                style={{ width: width*0.7, height: width*0.7 }}
             >
         <ScrollView
             horizontal={true}
@@ -38,7 +38,7 @@ const ScrollViews = () => {
                     <Image
                         resizeMode='contain'
                         key={i}
-                        style={{ width, height: width, marginBottom: 12, marginTop: 12 }}
+                        style={{ width: width*0.7, height: width*0.7 }}
                         source={source}
                     />
                 );

@@ -3,6 +3,9 @@ import { AppStackNavigator } from './screens/router';
 import { View, Dimensions } from 'react-native';
 import { Font, AppLoading } from 'expo';
 import { DeviceOrientation, AppDeviceInfo } from './modules/AppDeviceInfo/AppDeviceInfo';
+import { AppTheme } from './styles/themes';
+import { Provider } from 'react-redux';
+import { AppStore } from './redux/store/index';
 
 interface CompState {
   isLoading: boolean
@@ -31,21 +34,25 @@ export default class AppRoot extends React.Component<CompProps, CompState>   {
       Roboto: require('native-base/Fonts/Roboto.ttf'),
       Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf')
     });
-
+    AppTheme.setAppTheme('AQUA');
     this.setState({ isLoading: false });
   }
 
   render() {
     if (this.state.isLoading) {
       return (
-        <View>
-          <AppLoading />
-        </View>
+        <Provider store={AppStore} >
+          <View>
+            <AppLoading />
+          </View>
+        </Provider>
       );
     }
 
     return (
-      <AppStackNavigator />
+      <Provider store={AppStore} >
+        <AppStackNavigator />
+      </Provider>
     );
   }
 

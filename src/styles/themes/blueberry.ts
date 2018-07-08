@@ -10,6 +10,7 @@ const blueberryColorCombo: colorThemeCombo = {
 export const BlueberryTheme: AppThemeSchema = {
     bodyBGColor: blueberryColorCombo,
     textColor: blueberryColorCombo,
+    screenTitleColor: '#17A7D5',
     borderColor: {
         dark: '#000',
         medium: '#999',

@@ -1,36 +1,30 @@
 import React, { Component } from 'react';
 import { StyleSheet, Dimensions, View} from 'react-native';
-import { AppHeader, ScrollViews } from '../../components';
-import { Container, Content,  Text, List, ListItem, Button} from 'native-base';  //search scrollview here
+import { AppHeader, ScrollViews } from '../../components'; 
+import { Container, Content,  Text, Button} from 'native-base';  //search scrollview here
+import { AppTheme } from '../../styles/themes/index';
 
 const { width } = Dimensions.get('window');
-
-export default class HomeScreen extends Component {
-
+export class HomeScreen extends Component {
     render() {
-        const { lcontainer, listText  } = styles;
-
+        const { lcontainer, button, contentsContainer,  
+                featuresSection, bottomSection, buttonText } = styles;
         return (
             <Container style={lcontainer}>
                 <AppHeader />
 
                 <Content>
-                    <List>
-                        <ListItem>
-                            <Text style={listText}>Test Content  </Text>
-                        </ListItem>
-                    </List>
-                    <Text style={listText}>Below is the list to scroll the images  </Text>
-
-                        <View
-                            style={{ width, height: width}}
-                        >
-                    <ScrollViews />
+                    <View style={contentsContainer}>
+                        <View style={featuresSection}>
+                            <ScrollViews />
                         </View>
-                    <Button style={{marginBottom: 12, marginTop: 12}}
-                    onPress={() => (this.props as any).navigation.navigate('SecondScreen', {realm: 'blah'})} >
-                    <Text>Second Screen</Text>
-                    </Button>
+                        <View style={bottomSection}>
+                            <Button block style={button}
+                                onPress={() => (this.props as any).navigation.navigate('SelectPollTemplate', {realm: 'blah'})} >
+                                        <Text style={buttonText}>Create a Poll</Text>
+                            </Button>
+                        </View>
+                    </View>
                 </Content>
             </Container>
         );
@@ -38,7 +32,6 @@ export default class HomeScreen extends Component {
 }
 
 const styles = StyleSheet.create({
-
         lHeader : {
             backgroundColor: '#669999'
         },
@@ -52,5 +45,27 @@ const styles = StyleSheet.create({
         listText: {
             color: '#e0ebeb',
             fontSize: 18
+        },
+        button: {
+            backgroundColor: AppTheme.brandColors.medium
+        },
+        buttonText: {
+            fontSize: 20
+        },
+        contentsContainer : {
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+        },
+        featuresSection : {
+            flex: 6,
+            width: width, 
+            height: width,
+            justifyContent: 'center',
+            alignItems: 'center',
+        },
+        bottomSection : {
+            flex: 3,
+            justifyContent: 'center'
         }
 });
