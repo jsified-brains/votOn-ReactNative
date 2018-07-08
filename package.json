@@ -46,6 +46,8 @@
     "@expo/vector-icons": "^6.3.1",
     "@types/lodash": "^4.14.108",
     "@types/react-navigation": "^2.0.9",
+    "@types/react-redux": "5.0.14",
+    "axios": "^0.18.0",
     "expo": "^25.0.0",
     "lodash": "^4.17.10",
     "native-base": "^2.4.2",
@@ -53,6 +55,10 @@
     "react-native": "0.52.0",
     "react-native-device-info": "^0.21.5",
     "react-native-easy-grid": "^0.1.17",
-    "react-navigation": "^2.5.5"
+    "react-navigation": "^2.5.5",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-axios-middleware": "^4.0.0",
+    "redux-thunk": "^2.3.0"
   }
 }

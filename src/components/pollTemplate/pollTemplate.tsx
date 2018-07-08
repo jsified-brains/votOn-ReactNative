@@ -4,18 +4,28 @@ import { Content, Card, CardItem } from 'native-base';
 import { templateIcons, ITemplateIcons } from '../../assets/img/templateIcons';
 import styles  from './styles';
 import { getRandomVibrantColor } from '../../styles/AppStyles';
-import { pollTemplateType } from '../../interfacesAndTypes';
+import { PollTemplateType } from '../../interfacesTypesEnums';
+import { PollTemplateSelectedAction } from '../../redux/actions';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { AppReduxStateType } from '../../redux/reducers/AppReducers';
 
 
 
 interface CompProps {
-    pollTemplate: pollTemplateType
-    navigation: any
+    pollTemplate: PollTemplateType,
+    navigation: any,
+    pollTemplateSelected: (pollTemplate: PollTemplateType) => any,
+    activePollTemplate: PollTemplateType
+}
+
+interface CompState {
+
 }
 
 // https://shellmonger.com/2017/07/26/handling-orientation-changes-in-react-native/
 
-export class PollTemplate extends Component<CompProps, {}> {
+class PollTemplate extends Component<CompProps, CompState> {
 
     constructor(props: CompProps) {
         super(props);
@@ -29,7 +39,7 @@ export class PollTemplate extends Component<CompProps, {}> {
             <Content contentContainerStyle={styles.content} >
                 <Card style={styles.card}>
                     <CardItem cardBody
-                    onPress={() => this.props.navigation.navigate('AddPollOptions', { pollTemplate: this.props.pollTemplate})}
+                    onPress={() => this.onPollTemplateSelect()}
                     button
                     style={[ styles.iconContainer, { backgroundColor: getRandomVibrantColor() }]}>
                         <Image source={templateIcons[templateIcon]}
@@ -41,4 +51,29 @@ export class PollTemplate extends Component<CompProps, {}> {
         );
     }
 
+    onPollTemplateSelect = () => {
+        (this.props as any).pollTemplateSelected(this.props.pollTemplate);
+        this.props.navigation.navigate('AddPollOptionsScreen');
+    }
+
 }
+
+const mapStateToProps = (state: AppReduxStateType) => {
+    return {
+        activePollTemplate: state.activePollTemplate
+    }
+};
+
+// const mapDispatchToProps = () => {
+//     return {
+//         pollTemplateSelected: PollTemplateSelectedAction
+//     };
+// }
+
+const mapDispatchToProps = (dispatch: any) => {
+    return bindActionCreators({
+        pollTemplateSelected: PollTemplateSelectedAction
+    }, dispatch);
+  }
+
+export default connect(mapStateToProps, mapDispatchToProps)(PollTemplate)

@@ -1,3 +1,3 @@
 export * from './home/home';
-export * from './addPollOptions/addPollOptions';
+export * from './addPollOptionsScreen/addPollOptionsScreen';
 export * from './selectPollTemplate/selectPollTemplate';

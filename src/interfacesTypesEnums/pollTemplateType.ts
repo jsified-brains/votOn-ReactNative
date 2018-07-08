@@ -1,7 +1,7 @@
 import { AppPollTemplates } from "../assets/img/templateIcons";
 
 
-export type pollTemplateType = {
+export type PollTemplateType = {
     id: number,
     icon: AppPollTemplates,
     templateText: string

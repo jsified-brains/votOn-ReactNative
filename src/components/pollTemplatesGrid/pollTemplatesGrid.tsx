@@ -3,11 +3,11 @@ import {StyleSheet, Dimensions } from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 
 import { chunk } from 'lodash';
-import { PollTemplate} from '../pollTemplate/pollTemplate';
+import PollTemplate from '../pollTemplate/pollTemplate';
 import { DeviceOrientation, AppDeviceInfo } from '../../modules/AppDeviceInfo/AppDeviceInfo';
-import { pollTemplateType } from '../../interfacesAndTypes';
+import { PollTemplateType } from '../../interfacesTypesEnums';
 
-const pollTemplates: pollTemplateType[] = [
+const pollTemplates: PollTemplateType[] = [
     {
         id: 1,
         icon: 'meeting',
@@ -53,7 +53,7 @@ export class PollTemplatesGrid extends React.Component<CompProps, CompState>   {
         Dimensions.addEventListener('change', this.onOrientationChange);
     }
 
-    templatesRow = (templateChunk: pollTemplateType[] ) => {
+    templatesRow = (templateChunk: PollTemplateType[] ) => {
 
         return templateChunk.map(template => {
             return (

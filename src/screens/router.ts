@@ -1,6 +1,6 @@
 import { createStackNavigator } from 'react-navigation';
-import {AddPollOptions, SelectPollTemplate} from './';
-import {HomeScreen} from './home/home';
+import  { AddPollOptionsScreen, SelectPollTemplate, HomeScreen} from './';
+
 // import { AppRegistry } from 'react-native';
 
 
@@ -11,8 +11,8 @@ export const AppStackNavigator = createStackNavigator({
     SelectPollTemplate: {
         screen: SelectPollTemplate
     },
-    AddPollOptions: {
-        screen: AddPollOptions
+    AddPollOptionsScreen: {
+        screen: AddPollOptionsScreen
     }
 }, {    headerMode: 'none'  });
 
