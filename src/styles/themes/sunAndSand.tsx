@@ -9,6 +9,7 @@ const sunAndSandColorCombo: colorThemeCombo = {
 export const SunAndSandTheme: AppThemeSchema = {
     bodyBGColor: sunAndSandColorCombo,
     textColor: sunAndSandColorCombo,
+    screenTitleColor: '#17A7D5',
     borderColor: {
         dark: '#000',
         medium: '#999',

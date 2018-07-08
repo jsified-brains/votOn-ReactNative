@@ -9,4 +9,5 @@ export type AppThemeSchema = {
     bodyBGColor: colorThemeCombo
     textColor: colorThemeCombo
     borderColor: colorThemeCombo
+    screenTitleColor: string
 };

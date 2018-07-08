@@ -10,6 +10,7 @@ const forestColorCombo: colorThemeCombo = {
 export const ForestTheme: AppThemeSchema = {
     bodyBGColor: forestColorCombo,
     textColor: forestColorCombo,
+    screenTitleColor: '#17A7D5',
     borderColor: {
         dark: '#000',
         medium: '#999',

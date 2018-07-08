@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { AppTheme } from '../../../styles/themes/index';
+import { AppTheme } from '../../../styles/themes';
 // export type styleType = {
 //     card: any;
 //     cardFooter: any;
@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
         paddingTop: 10
     },
     titleText: {
-        color: '#17A7D5', 
+        color: AppTheme.currentTheme.screenTitleColor, 
         fontSize: 30
     },
     bodyContent: {
@@ -52,6 +52,10 @@ export const styles = StyleSheet.create({
         // borderColor: 'red', 
         // borderWidth: 2,
         // borderStyle: 'solid'
+    },
+    addIconButton: {
+        color: AppTheme.currentTheme.screenTitleColor,
+        fontSize: 40
     },
     topSectionRight: {
         flex: 7,

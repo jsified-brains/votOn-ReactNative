@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Content,  Text, Item, Input } from 'native-base';
+import { Container, Content,  Text, Item, Input, Icon, Button } from 'native-base';
 import { Image, View } from 'react-native';
 
 import { OptionsGrid} from '../../components';
@@ -10,7 +10,6 @@ import { getRandomVibrantColor } from '../../styles/AppStyles';
 import styles from './styles';
 import { connect } from 'react-redux';
 import { AppReduxStateType } from '../../redux/reducers/AppReducers';
-
 
 
 
@@ -33,7 +32,7 @@ class AddPollOptions extends Component<CompProps, CompState> {
     render() {
         const {content, title, bodyContent, titleText, bodySections, topSection, addOptionInputSection,
                     topSectionContainer, topSectionLeft, topSectionRight, pollQuestion,
-                    iconContainer, optionsGrid } = styles;
+                    iconContainer, optionsGrid, addIconButton } = styles;
 
         const navigation =  (this.props as any).navigation;
 
@@ -76,8 +75,10 @@ class AddPollOptions extends Component<CompProps, CompState> {
                             <View style={addOptionInputSection}>
                                     <Item regular >
                                         <Input placeholder="option 1" style={pollQuestion}/>
+                                        <Button transparent>
+                                            <Icon type="FontAwesome" name="plus-circle" style={addIconButton}/>
+                                        </Button>
                                     </Item>
-                                    
                             </View>
                             <View style={optionsGrid}>
                                 <Item >

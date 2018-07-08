@@ -10,6 +10,7 @@ const forestColorCombo: colorThemeCombo = {
 export const AquaTheme: AppThemeSchema = {
     bodyBGColor: forestColorCombo,
     textColor: forestColorCombo,
+    screenTitleColor: '#17A7D5',
     borderColor: {
         dark: '#000',
         medium: '#999',
