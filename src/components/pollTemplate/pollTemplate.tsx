@@ -5,12 +5,10 @@ import { templateIcons, ITemplateIcons } from '../../assets/img/templateIcons';
 import styles  from './styles';
 import { getRandomVibrantColor } from '../../styles/AppStyles';
 import { PollTemplateType } from '../../interfacesTypesEnums';
-import { PollTemplateSelectedAction } from '../../redux/actions';
+import { InitiateNewPollAction } from '../../redux/actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { AppReduxStateType } from '../../redux/reducers/AppReducers';
-
-
 
 interface CompProps {
     pollTemplate: PollTemplateType,
@@ -61,7 +59,7 @@ class PollTemplate extends Component<CompProps, CompState> {
 const mapStateToProps = (state: AppReduxStateType) => {
     return {
         activePollTemplate: state.activePollTemplate
-    }
+    };
 };
 
 // const mapDispatchToProps = () => {
@@ -72,8 +70,8 @@ const mapStateToProps = (state: AppReduxStateType) => {
 
 const mapDispatchToProps = (dispatch: any) => {
     return bindActionCreators({
-        pollTemplateSelected: PollTemplateSelectedAction
+        pollTemplateSelected: InitiateNewPollAction
     }, dispatch);
-  }
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(PollTemplate)
+export default connect(mapStateToProps, mapDispatchToProps)(PollTemplate);

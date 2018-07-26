@@ -1,1 +1,2 @@
-export * from './pollTemplates'
+export * from './pollTemplates';
+export * from './initialNewPoll';
