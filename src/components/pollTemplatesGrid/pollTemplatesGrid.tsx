@@ -41,10 +41,11 @@ interface CompState {
 
 // https://shellmonger.com/2017/07/26/handling-orientation-changes-in-react-native/
 interface CompProps {
-    navigation:any
+    navigation: any
 }
 
 export class PollTemplatesGrid extends React.Component<CompProps, CompState>   {
+
     constructor(props: CompProps) {
         super(props);
         this.state = {

@@ -2,24 +2,25 @@ import React, { Component } from 'react';
 import { Container, Content,  Text, Item, Input, Icon, Button } from 'native-base';
 import { Image, View } from 'react-native';
 
-import { OptionsGrid} from '../../components';
-import { PollTemplateType } from '../../interfacesTypesEnums';
+import OptionsGrid from '../optionsGrid/optionsGrid';
+import { Poll } from '../../interfacesTypesEnums';
 import { templateIcons, ITemplateIcons } from '../../assets/img/templateIcons';
 
 import { getRandomVibrantColor } from '../../styles/AppStyles';
 import styles from './styles';
 import { connect } from 'react-redux';
 import { AppReduxStateType } from '../../redux/reducers/AppReducers';
-
-
+import { bindActionCreators } from 'redux';
+import { UpdateNewPollOptionsAction } from '../../redux/actions';
 
 interface CompProps {
     navigation: any,
-    activePollTemplate: PollTemplateType,
+    newlyCreatedPoll: Poll,
+    updatePollOptions: (pollTemplate: Poll) => any,
 }
 
 interface CompState {
-
+    newPollOption: string
 }
 
 // https://shellmonger.com/2017/07/26/handling-orientation-changes-in-react-native/
@@ -27,6 +28,9 @@ interface CompState {
 class AddPollOptions extends Component<CompProps, CompState> {
     constructor(props: CompProps) {
         super(props);
+        this.state = {
+            newPollOption: 'option A'
+        };
     }
 
     render() {
@@ -37,17 +41,20 @@ class AddPollOptions extends Component<CompProps, CompState> {
         const navigation =  (this.props as any).navigation;
 
         // const pollTemplate: PollTemplateType =    navigation.getParam('pollTemplate', null); // if pollTemplate param doesn't exist, return null
-        const pollTemplate: PollTemplateType = this.props.activePollTemplate;
-        const templateIcon: (keyof ITemplateIcons) = pollTemplate.icon;
-        if (!pollTemplate) {
+        const newlyCreatedPoll: Poll = this.props.newlyCreatedPoll;
+        const templateIcon: (keyof ITemplateIcons) = newlyCreatedPoll.basePollTemplate.icon;
+        if (!newlyCreatedPoll) {
             return navigation.navigate('SelectPollTemplate');
         }
         return (
-            
+
             <Container>
                 <Content contentContainerStyle={content}>
                     <View  style={title}>
                         <Text style={titleText}>Add poll choices/options</Text>
+                    </View>
+                    <View  style={title}>
+                        <Text >{ this.state.newPollOption}</Text>
                     </View>
                     <View style={bodyContent}>
                         <View style={bodySections}>
@@ -61,22 +68,26 @@ class AddPollOptions extends Component<CompProps, CompState> {
 
                                         </View>
 
-
                                     </View>
                                     <View style={topSectionRight}>
                                         <Item regular  >
-                                            <Input placeholder={ pollTemplate.templateText } style={pollQuestion}/>
+                                            <Input
+                                                placeholder={ newlyCreatedPoll.question }
+                                                style={pollQuestion}/>
                                         </Item>
                                     </View>
                                 </View>
                             </View>
 
-
                             <View style={addOptionInputSection}>
                                     <Item regular >
-                                        <Input placeholder="option 1" style={pollQuestion}/>
-                                        <Button transparent>
-                                            <Icon type="FontAwesome" name="plus-circle" style={addIconButton}/>
+                                        <Input
+                                        value={ this.state.newPollOption }
+                                        onChangeText={ (evt) => this.updateNewPollOption(evt) }
+                                        style={pollQuestion} />
+                                        <Button transparent
+                                            onPress={() => this.addPollOption()}>
+                                            <Icon type='FontAwesome' name='plus-circle' style={addIconButton}/>
                                         </Button>
                                     </Item>
                             </View>
@@ -92,17 +103,40 @@ class AddPollOptions extends Component<CompProps, CompState> {
         );
     }
 
-};
+    updateNewPollOption = (option: string) => {
+        this.setState({
+            newPollOption: option
+        });
+    }
 
+    addPollOption = () => {
+        const updatedOptions = [
+            ...this.props.newlyCreatedPoll.options
+        ];
+        updatedOptions.push({
+            description: this.state.newPollOption,
+            index: 0
+        });
+
+        const updatedPoll: Poll = {...this.props.newlyCreatedPoll,
+                options: updatedOptions
+        };
+        (this.props as any).updatePollOptions(updatedPoll);
+
+    }
+
+}
 
 const mapStateToProps = (state: AppReduxStateType) => {
     return {
-        activePollTemplate: state.activePollTemplate
-    }
+        newlyCreatedPoll: state.newlyCreatedPoll
+    };
 };
 
-const mapDispatchToProps = () => {
-    return {};
+const mapDispatchToProps = (dispatch: any) => {
+    return bindActionCreators({
+        updatePollOptions: UpdateNewPollOptionsAction
+    }, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddPollOptions)
+export default connect(mapStateToProps, mapDispatchToProps)(AddPollOptions);

@@ -1,4 +1,4 @@
-import { PollTemplateType } from "../../interfacesTypesEnums";
+import { PollTemplateType } from '../../interfacesTypesEnums';
 
 export const pollTemplates: PollTemplateType[] = [
     {
@@ -27,5 +27,4 @@ export const pollTemplates: PollTemplateType[] = [
         templateText: 'Which movie to go again?'
     }
 ];
-
 // export default pollTemplates;

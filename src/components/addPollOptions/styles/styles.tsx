@@ -18,14 +18,14 @@ export const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        paddingTop: 10
+        paddingTop: 5
     },
     titleText: {
-        color: AppTheme.currentTheme.screenTitleColor, 
-        fontSize: 30
+        color: AppTheme.currentTheme.screenTitleColor,
+        fontSize: 20
     },
     bodyContent: {
-        flex: 9, 
+        flex: 10,
         justifyContent: 'center',
         alignItems: 'stretch'
     },
@@ -41,7 +41,7 @@ export const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         alignItems: 'stretch',
-        justifyContent: 'space-around',
+        justifyContent: 'space-around'
     },
     topSectionLeft: {
         flex: 2,
@@ -49,7 +49,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 10,
         marginLeft: 10
-        // borderColor: 'red', 
+        // borderColor: 'red',
         // borderWidth: 2,
         // borderStyle: 'solid'
     },
@@ -92,5 +92,5 @@ export const styles = StyleSheet.create({
     pollOptionInput: {
         color: '#FAF9F0',
         fontSize: 18
-    },
+    }
 });
