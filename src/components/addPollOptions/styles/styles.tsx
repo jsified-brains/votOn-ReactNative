@@ -35,33 +35,33 @@ export const styles = StyleSheet.create({
         alignItems: 'stretch'
     },
     topSection: {
-        flex: 2
+        flex: 1,
+        borderColor: AppTheme.currentTheme.bodyBGColor.dark,
+        borderWidth: 2,
+        borderStyle: 'solid'
     },
     topSectionContainer: {
         flex: 1,
         flexDirection: 'row',
         alignItems: 'stretch',
-        justifyContent: 'space-around'
+        justifyContent: 'center'
     },
     topSectionLeft: {
         flex: 2,
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         alignItems: 'center',
-        padding: 10,
+        padding: 2,
         marginLeft: 10
-        // borderColor: 'red',
-        // borderWidth: 2,
-        // borderStyle: 'solid'
     },
     addIconButton: {
         color: AppTheme.currentTheme.screenTitleColor,
         fontSize: 40
     },
     topSectionRight: {
-        flex: 7,
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 10
+        flex: 8,
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
+        padding: 5
     },
     addOptionInputSection: {
         flex: 1,
@@ -70,7 +70,7 @@ export const styles = StyleSheet.create({
         padding: 20
     },
     optionsGrid: {
-        flex: 5,
+        flex: 7,
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
         padding: 20

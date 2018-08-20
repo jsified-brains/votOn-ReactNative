@@ -4,11 +4,13 @@ import { Dimensions } from 'react-native';
 
 // import { chunk } from 'lodash';
 import { DeviceOrientation, AppDeviceInfo } from '../../modules/AppDeviceInfo/AppDeviceInfo';
-import { Content, Card, CardItem, Icon, Right, Text, View } from 'native-base';
+import { Content, Card, CardItem, Icon, Right, Text, View, Button } from 'native-base';
 import { AppReduxStateType } from '../../redux/reducers/AppReducers';
 import { connect } from 'react-redux';
 import { Poll } from '../../interfacesTypesEnums';
 import { styles } from './styles/styles';
+import { bindActionCreators } from 'redux';
+import { UpdateNewPollOptionsAction } from '../../redux/actions';
 
 interface CompState {
     orientation: DeviceOrientation
@@ -16,7 +18,8 @@ interface CompState {
 
 // https://shellmonger.com/2017/07/26/handling-orientation-changes-in-react-native/
 interface CompProps {
-    newlyCreatedPoll: Poll
+    newlyCreatedPoll: Poll,
+    updatePollOptions: (pollTemplate: Poll) => any,
 }
 
 class OptionsGrid extends React.Component<CompProps, CompState>   {
@@ -43,7 +46,10 @@ class OptionsGrid extends React.Component<CompProps, CompState>   {
                                 </View>
                                 <View style={colIcon}>
                                     <Right>
-                                        <Icon name='trash' style={{color: 'red'}} />
+                                        <Button transparent
+                                            onPress={() => this.removePollOption(option.description)}>
+                                            <Icon type='FontAwesome' name='trash' style={{color: 'red'}}/>
+                                        </Button>
                                     </Right>
                                 </View>
                             </View>
@@ -61,6 +67,18 @@ class OptionsGrid extends React.Component<CompProps, CompState>   {
         );
     }
 
+    removePollOption = (optionToRemove: string) => {
+        const updatedOptions = [
+            ...this.props.newlyCreatedPoll.options
+        ];
+
+        const updatedPoll: Poll = {...this.props.newlyCreatedPoll,
+                options: updatedOptions.filter((option) => option.description !== optionToRemove)
+        };
+        (this.props as any).updatePollOptions(updatedPoll);
+
+    }
+
     onOrientationChange = () => {
         this.setState({
             orientation: AppDeviceInfo.orientation()
@@ -75,8 +93,10 @@ const mapStateToProps = (state: AppReduxStateType) => {
     };
 };
 
-const mapDispatchToProps = () => {
-    return {};
+const mapDispatchToProps = (dispatch: any) => {
+    return bindActionCreators({
+        updatePollOptions: UpdateNewPollOptionsAction
+    }, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(OptionsGrid);

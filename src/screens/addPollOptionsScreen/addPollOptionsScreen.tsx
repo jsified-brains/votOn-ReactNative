@@ -3,13 +3,13 @@ import { AppHeader } from '../../components';
 import { Container, Content } from 'native-base';
 import { StyleSheet } from 'react-native';
 import { AppTheme } from '../../styles/themes';
-import AddPollOptions from '../../components/addPollOptions/addPollOptions'
+import AddPollOptions from '../../components/addPollOptions/addPollOptions';
 
 export class AddPollOptionsScreen extends Component {
-    
+
     render() {
         const {content, container} = styles;
-        
+
         return ( <Container style={container}>
                 <AppHeader />
 
@@ -20,7 +20,7 @@ export class AddPollOptionsScreen extends Component {
 
         );
     }
-};
+}
 
 const styles = StyleSheet.create({
     container: {

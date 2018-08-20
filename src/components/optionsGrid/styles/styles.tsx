@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
         flex: 7
     },
     colIcon: {
-        flex: 1
+        flex: 2
     },
     deleteIcon: {
         color: 'red'

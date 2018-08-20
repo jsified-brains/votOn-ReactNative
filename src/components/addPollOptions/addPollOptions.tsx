@@ -12,6 +12,7 @@ import { connect } from 'react-redux';
 import { AppReduxStateType } from '../../redux/reducers/AppReducers';
 import { bindActionCreators } from 'redux';
 import { UpdateNewPollOptionsAction } from '../../redux/actions';
+// import { EditTextModal } from '..';
 
 interface CompProps {
     navigation: any,
@@ -20,7 +21,8 @@ interface CompProps {
 }
 
 interface CompState {
-    newPollOption: string
+    newPollOption: string,
+    modalVisible: boolean
 }
 
 // https://shellmonger.com/2017/07/26/handling-orientation-changes-in-react-native/
@@ -29,7 +31,8 @@ class AddPollOptions extends Component<CompProps, CompState> {
     constructor(props: CompProps) {
         super(props);
         this.state = {
-            newPollOption: 'option A'
+            newPollOption: 'option A',
+            modalVisible: false
         };
     }
 
@@ -47,14 +50,10 @@ class AddPollOptions extends Component<CompProps, CompState> {
             return navigation.navigate('SelectPollTemplate');
         }
         return (
-
             <Container>
                 <Content contentContainerStyle={content}>
                     <View  style={title}>
                         <Text style={titleText}>Add poll choices/options</Text>
-                    </View>
-                    <View  style={title}>
-                        <Text >{ this.state.newPollOption}</Text>
                     </View>
                     <View style={bodyContent}>
                         <View style={bodySections}>
@@ -62,23 +61,25 @@ class AddPollOptions extends Component<CompProps, CompState> {
                                 <View style={topSectionContainer} >
                                     <View style={topSectionLeft} >
                                         <View style={[iconContainer, { backgroundColor: getRandomVibrantColor() }]}>
-
-                                                <Image source={templateIcons[templateIcon]}
-                                                                        style={[{width: 55, height: 40} ]}/>
-
+                                            <Image source={templateIcons[templateIcon]}
+                                                style={[{width: 35, height: 20} ]} />
                                         </View>
-
                                     </View>
                                     <View style={topSectionRight}>
-                                        <Item regular  >
-                                            <Input
-                                                placeholder={ newlyCreatedPoll.question }
-                                                style={pollQuestion}/>
-                                        </Item>
+                                       {newlyCreatedPoll.question}
+                                        {/* <EditTextModal
+                                            visible = {true}
+                                            textColor = '#FFF'
+                                            textToEdit = {newlyCreatedPoll.question}
+                                            onSubmit = {this.onPollQuestionEdit} title = 'asdas' /> */}
                                     </View>
                                 </View>
                             </View>
-
+                            <View style={optionsGrid}>
+                                <Item >
+                                    <OptionsGrid />
+                                </Item>
+                            </View>
                             <View style={addOptionInputSection}>
                                     <Item regular >
                                         <Input
@@ -90,11 +91,6 @@ class AddPollOptions extends Component<CompProps, CompState> {
                                             <Icon type='FontAwesome' name='plus-circle' style={addIconButton}/>
                                         </Button>
                                     </Item>
-                            </View>
-                            <View style={optionsGrid}>
-                                <Item >
-                                    <OptionsGrid />
-                                </Item>
                             </View>
                         </View>
                     </View>
@@ -123,6 +119,23 @@ class AddPollOptions extends Component<CompProps, CompState> {
         };
         (this.props as any).updatePollOptions(updatedPoll);
 
+    }
+
+    onPollQuestionEdit = (editedQuestion: string) => {
+        const updatedPoll: Poll = {...this.props.newlyCreatedPoll,
+            question: editedQuestion
+        };
+        (this.props as any).updatePollOptions(updatedPoll);
+    }
+
+    renderEditPollQuestionModal = () => {
+        return (
+                <View style={{marginTop: 22}}>
+                  <View>
+                    <Text>Hello World!</Text>
+                  </View>
+                </View>
+          );
     }
 
 }
