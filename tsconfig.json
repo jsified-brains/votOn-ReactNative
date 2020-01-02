@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "module":"es2015",
+        "module": "es2015",
         "target": "es2015",
         "jsx": "react",
         "rootDir": "src",
@@ -15,7 +15,7 @@
         "noUnusedParameters": true,
         "noImplicitReturns": true,
         "skipLibCheck": true,
-        "moduleResolution":"Node"
+        "moduleResolution": "Node"
     },
     "filesGlob": [
         "typings/index.d.ts",
@@ -24,19 +24,21 @@
         "node_modules/typescript/lib/lib.es6.d.ts"
     ],
     "types": [
-      "react",
-      "react-dom",
-      "react-native"
+        "react",
+        "react-dom",
+        "react-native"
     ],
-    "exclude":[
-        "index.android.js", 
-        "index.ios.js", 
+    "exclude": [
+        "index.android.js",
+        "index.ios.js",
         "index.js",
-        "build", 
+        "build",
         "node_modules",
         "__tests__",
         "awsmobilejs",
-        "jest.config.js"
+        "App.js",
+        "jest.config.js",
+        "coverage"
     ],
     "compileOnSave": false
 }

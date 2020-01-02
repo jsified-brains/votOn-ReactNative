@@ -1,30 +1,30 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Image } from 'react-native';
+import { Right, Body, Header, Icon,
+            Title, Subtitle } from 'native-base';
+import logo from '../../../assets/img/logo.png';
+import { styles } from './styles';
 
-const Header = (props: CompProps) => {
-    const { textStyle, viewStyle } = styles;
+const AppHeader = () => {
+
+    const { container, bodyContainer, titleText, logoImg,
+        logoContainer , subtitleContainer, rightBlock, circleIcon } = styles;
 
     return (
-        <View style={viewStyle} >
-            <Text style={textStyle}> { props.headerText} </Text>
-        </View>
+        <Header style={container}>
+            <Body style={bodyContainer}>
+                <Title style={logoContainer}>
+                    <Image
+                        style={logoImg}
+                        source={logo} />
+                </Title>
+                <Subtitle style={[subtitleContainer, titleText]}>...polls made simple</Subtitle>
+            </Body>
+            <Right style={rightBlock}>
+                <Icon type='FontAwesome' name='user-circle' style={circleIcon}/>
+            </Right>
+        </Header>
     );
 };
 
-interface CompProps {
-    headerText: string
-}
-
-
-const styles = {
-    textStyle: {
-        fontSize: 20
-    },
-    viewStyle: {
-        flex: 1,
-        flexDirection: 'row' as 'row',
-        alignItems: 'center' as 'center',
-        justifyContent: 'center' as 'center'
-    }
-}
-export { Header };
+export { AppHeader };

@@ -1,14 +1,19 @@
-import { TabNavigator } from "react-navigation";
-import SecondScreen from "./secondScreen/secondScreen";
-import HomeScreen from "./home/home";
+import { createStackNavigator } from 'react-navigation';
+import  { AddPollOptionsScreen, SelectPollTemplate, HomeScreen} from './';
 
-const AppTabNavigator = TabNavigator({
+// import { AppRegistry } from 'react-native';
+
+
+export const AppStackNavigator = createStackNavigator({
     HomeScreen: {
-        screen: HomeScreen,
+        screen: HomeScreen
     },
-    SecondScreen:{
-        screen: SecondScreen,
+    SelectPollTemplate: {
+        screen: SelectPollTemplate
     },
-});
+    AddPollOptionsScreen: {
+        screen: AddPollOptionsScreen
+    }
+}, {    headerMode: 'none'  });
 
-export default AppTabNavigator ;
+// AppRegistry.registerComponent('AppRoot', () => AppStackNavigator);
