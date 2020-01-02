@@ -3,15 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "@types/react": "^16.0.40",
+    "@types/jest": "22.2.2",
+    "@types/lodash": "4.14.106",
+    "@types/react": "16.3.5",
     "@types/react-dom": "^16.0.4",
-    "@types/react-native": "^0.52.19",
+    "@types/react-native": "0.52.24",
     "@types/react-navigation": "^1.5.2",
+    "@types/react-test-renderer": "16.0.1",
     "concurrently": "^3.5.1",
     "jest-expo": "25.0.0",
     "react-native-scripts": "1.11.1",
+    "react-native-typescript-transformer": "1.2.4",
     "react-test-renderer": "16.2.0",
     "rimraf": "^2.6.2",
+    "ts-jest": "22.4.2",
     "tslint": "^5.9.1",
     "typescript": "^2.7.2",
     "typings": "^2.1.1"
@@ -22,7 +27,7 @@
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
-    "test": "node node_modules/jest/bin/jest.js",
+    "test": "node node_modules/jest/bin/jest.js --coverage",
     "lint": "tslint src/**/*.ts",
     "tsc": "tsc",
     "clean": "rimraf build",
@@ -42,6 +47,6 @@
     "expo": "^25.0.0",
     "react": "16.2.0",
     "react-native": "0.52.0",
-    "react-navigation" : "1.5.8"
+    "react-navigation": "1.5.8"
   }
 }
